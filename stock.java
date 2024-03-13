@@ -1,10 +1,11 @@
 public class stock {
-    private int price;
+    private double price;
     private String date;
-    private int dailyValueChange;
+    private double dailyValueChange;
     private String stockExchange;
     private String companyName;
     private String ticker;
+    private int amountOfStock;
 
     public String getDate() {
         return date;
@@ -18,9 +19,10 @@ public class stock {
 
 
 
-    public int getDailyValueChange() {
+    public double getDailyValueChange() {
         return dailyValueChange;
     }
+
 
 
 
@@ -64,22 +66,36 @@ public class stock {
         this.ticker = ticker;
     }
 
+    
+    public int getAmountOfStock(){
+        return amountOfStock;
+    }
+
+    public void setAmountOfStock(int amountOfStock){
+        this.amountOfStock = amountOfStock;
+    }
+
+    public void addAmountOfStock(int amountOfStock){
+        this.amountOfStock += amountOfStock;
+    }
 
 
-    stock(int price, String date, String stockExchange, String companyName, String ticker){
+
+    stock(double price, String date, String stockExchange, String companyName, String ticker){
         this.price = price;
         this.date = date;
         this.dailyValueChange = 0;
         this.stockExchange = stockExchange;
         this.companyName = companyName;
         this.ticker = ticker;
+        this.amountOfStock = 0;
     }
 
-    public int getPrice(){
+    public double getPrice(){
         return price;
     }
 
-    public void setPrice(int price){
+    public void setPrice(double price){
         if(this.price > price){
             dailyValueChange = price - this.price;
         }
